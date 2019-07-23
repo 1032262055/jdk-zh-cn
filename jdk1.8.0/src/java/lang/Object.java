@@ -258,10 +258,19 @@ public class Object {
      * contents of the fields are not themselves cloned. Thus, this method
      * performs a "shallow copy" of this object, not a "deep copy" operation.
      * <p>
+     *
+     *   Object类的clone方法执行了特定的克隆操作。首先，如果这个对象的类没有实现 Cloneable接口，则抛出CloneNotSupportedException异常，
+     *
+     *  注意，所有数组类型实现了Cloneable接口的数组类型T[]的clone方法的返回值类型为T[]，其中T是任何引用或基本类型。
+     *  否则，此方法将创建该类的一个新实例,对象初始化其所有字段，并将其内容精确地初始化为该对象的对应字段，就像赋值一样；
+     *  字段的内容本身不是克隆的。因此，这个方法执行此对象的‘浅复制’操作，而不是‘深复制’操作
+     *
      * The class {@code Object} does not itself implement the interface
      * {@code Cloneable}, so calling the {@code clone} method on an object
      * whose class is {@code Object} will result in throwing an
      * exception at run time.
+     *
+     * Object本省并不实现Cloneable接口，因此调用Object对象上的clone方法将会抛出一个运行时异常
      *
      * @return a clone of this instance.
      * @throws CloneNotSupportedException if the object's class does not
@@ -280,6 +289,12 @@ public class Object {
      * be a concise but informative representation that is easy for a
      * person to read.
      * It is recommended that all subclasses override this method.
+     *
+     * 返回对象的字符串表示形式。一般来说,
+     * 方法返回一个字符串
+     * “text -”表示此对象。结果应该简明扼要，内容丰富，对一个人来说很容易阅读
+     * 建议所有子类重写此方法。
+     *
      * <p>
      * The {@code toString} method for class {@code Object}
      * returns a string consisting of the name of the class of which the
@@ -287,6 +302,9 @@ public class Object {
      * the unsigned hexadecimal representation of the hash code of the
      * object. In other words, this method returns a string equal to the
      * value of:
+     *
+     * Object对象的toString方法返回一个由对象组成的字符串，用符号＠标识，
+     * 以及哈希码的无符号十六进制形式表示对象，换言之，此方法返回一个字符串，该字符串等价于：
      * <blockquote>
      * <pre>
      * getClass().getName() + '@' + Integer.toHexString(hashCode())
